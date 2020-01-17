@@ -15,7 +15,7 @@ RUN apk add --update \
   expat-dev \
   pcre-dev \
   zlib-dev \
-	bsd-compat-headers \
+  bsd-compat-headers \
   lua-dev \
   luajit-dev \
   brotli-dev \
