@@ -36,13 +36,14 @@ ADD package.sh /usr/src/package.sh
 WORKDIR /usr/src/openlitespeed-${PKGVER}
 RUN for x in $(ls ../patches/*.patch) ; do patch -p1 -i $x ; done
 
-# Skipped: --with-lua --with-brotli=/usr/lib/ --disable-static
+# Skipped: --with-lua --with-brotli=/usr/lib/
 RUN ./configure \
     --prefix=/var/lib/litespeed \
     --with-user=litespeed \
     --with-group=litespeed \
     --enable-adminssl=no \
     --disable-rpath \
+    --disable-static \
     --with-openssl=/usr \
     --with-expat \
     --with-pcre \
