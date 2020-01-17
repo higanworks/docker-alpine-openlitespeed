@@ -29,7 +29,7 @@ RUN apk add --update \
   git \
   file \
   udns-dev \
-  php7-litespeed
+  php7-litespeed php7-bcmath php7-json php7-mcrypt php7-session php7-sockets php7-posix
 
 ADD patches/${PKGVER} /usr/src/patches
 ADD package.sh /usr/src/package.sh
