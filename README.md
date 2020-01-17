@@ -21,7 +21,8 @@ COPY --from=openlitespeed /usr/sbin/lshttpd /usr/sbin/lshttpd
 COPY --from=openlitespeed /usr/lib/litespeed /usr/lib/litespeed
 COPY --from=openlitespeed /var/lib/litespeed /var/lib/litespeed
 COPY --from=openlitespeed /var/log/litespeed /var/log/litespeed
-RUN apk add php7-litespeed php7-bcmath php7-json php7-mcrypt php7-session php7-sockets php7-posix
+RUN apk add pcre udns expat libgcc libstdc++ \
+  php7-litespeed php7-bcmath php7-json php7-mcrypt php7-session php7-sockets php7-posix
 
 ...
 ```

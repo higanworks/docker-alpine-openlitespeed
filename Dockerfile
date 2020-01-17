@@ -36,14 +36,13 @@ ADD package.sh /usr/src/package.sh
 WORKDIR /usr/src/openlitespeed-${PKGVER}
 RUN for x in $(ls ../patches/*.patch) ; do patch -p1 -i $x ; done
 
-# Skipped: --with-lua --with-brotli=/usr/lib/
+# Skipped: --with-lua --with-brotli=/usr/lib/ --disable-static
 RUN ./configure \
     --prefix=/var/lib/litespeed \
     --with-user=litespeed \
     --with-group=litespeed \
     --enable-adminssl=no \
     --disable-rpath \
-    --disable-static \
     --with-openssl=/usr \
     --with-expat \
     --with-pcre \
@@ -56,7 +55,10 @@ RUN addgroup -S litespeed
 RUN adduser -S -D -H -h /var/lib/litespeed -s /sbin/nologin -G litespeed -g litespeed litespeed
 RUN /usr/src/package.sh
 
+# just test run
 WORKDIR /var/lib/litespeed
+RUN /var/lib/litespeed/bin/litespeed -v
+
 EXPOSE 7080 8088
 # ENTRYPOINT [ "/usr/sbin/lshttpd", "-v" ]
 ENTRYPOINT [ "/var/lib/litespeed/bin/litespeed", "-d" ]
