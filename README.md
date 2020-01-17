@@ -8,7 +8,7 @@ Origin: https://git.alpinelinux.org/aports/tree/testing/litespeed?h=master
 ## Usage
 
 ```
-FROM higanworks/docker-alpine-openlitespeed:1.5.11 AS openlitespeed
+FROM higanworks/alpine-openlitespeed:1.5.11-1 AS openlitespeed
 RUN /bin/true
 
 FROM alpine:3.11
