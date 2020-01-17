@@ -9,7 +9,7 @@ Origin: https://git.alpinelinux.org/aports/tree/testing/litespeed?h=master
 
 ```
 FROM higanworks/alpine-openlitespeed:1.5.11-1 AS openlitespeed
-RUN /bin/true
+RUN /usr/sbin/lshttpd -v
 
 FROM alpine:3.11
 COPY --from=openlitespeed /etc/passwd /etc/passwd
@@ -22,4 +22,10 @@ COPY --from=openlitespeed /var/log/litespeed /var/log/litespeed
 RUN apk add php7-litespeed php7-bcmath php7-json php7-mcrypt php7-session php7-sockets php7-posix
 
 ...
+```
+
+to run foreground,
+
+```
+/var/lib/litespeed/bin/litespeed -d
 ```
