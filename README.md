@@ -1,5 +1,7 @@
 # docker-alpine-openlitespeed
 
+[![alpine-openlitespeed](http://dockeri.co/image/higanworks/alpine-openlitespeed)](https://hub.docker.com/r/higanworks/alpine-openlitespeed/)
+
 Build based directory structure like [aports/litespeed](https://pkgs.alpinelinux.org/package/edge/testing/x86/litespeed).
 
 Origin: https://git.alpinelinux.org/aports/tree/testing/litespeed?h=master
