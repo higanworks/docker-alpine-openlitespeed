@@ -1,0 +1,64 @@
+--- a/src/main/httpserver.cpp
++++ b/src/main/httpserver.cpp
+@@ -138,7 +138,7 @@
+ 
+ #if defined(__FreeBSD__ ) || defined(__NetBSD__) || defined(__OpenBSD__) \
+     || defined(macintosh) || defined(__APPLE__) || defined(__APPLE_CC__)
+-#include <sys/sysctl.h>
++#include <linux/sysctl.h>
+ #endif
+ 
+ #define FILEMODE            0644
+--- a/src/main/lshttpdmain.cpp
++++ b/src/main/lshttpdmain.cpp
+@@ -51,7 +51,7 @@
+ #include <util/httpfetch.h>
+ #include <socket/gsockaddr.h>
+ 
+-#include <sys/sysctl.h>
++#include <linux/sysctl.h>
+ 
+ #include <extensions/cgi/cgidworker.h>
+ #include <extensions/registry/extappregistry.h>
+@@ -1781,7 +1781,7 @@ static int parseChildCmd(const char *pAction)
+ #if defined(__FreeBSD__ ) || defined(__NetBSD__) || defined(__OpenBSD__) \
+     || defined(macintosh) || defined(__APPLE__) || defined(__APPLE_CC__)
+ #include <sys/types.h>
+-#include <sys/sysctl.h>
++#include <linux/sysctl.h>
+ #include <sys/user.h>
+ static long getProcessStartTime(int pid)
+ {
+--- a/src/util/pcutil.cpp
++++ b/src/util/pcutil.cpp
+@@ -30,7 +30,7 @@
+ #endif
+ 
+ #ifdef __FreeBSD__
+-#include <sys/sysctl.h>
++#include <linux/sysctl.h>
+ #include <sys/param.h>
+ #include <sys/cpuset.h>
+ #endif
+--- a/src/util/pcutil.h
++++ b/src/util/pcutil.h
+@@ -26,7 +26,7 @@
+ #elif defined(macintosh) || defined(__APPLE__) || defined(__APPLE_CC__)
+ #include <mach/mach_init.h>
+ #include <mach/thread_policy.h>
+-#include <sys/sysctl.h>
++#include <linux/sysctl.h>
+ #define cpu_set_t thread_affinity_policy_data_t
+ #define CPU_SET(cpu_id, new_mask) \
+     (*(new_mask)).affinity_tag = (cpu_id + 1)
+--- a/src/util/sysinfo/bsd_nicdetect.cpp
++++ b/src/util/sysinfo/bsd_nicdetect.cpp
+@@ -18,7 +18,7 @@
+ #include    <net/if_dl.h>        /* sockaddr_sdl{} */
+ #include    <net/route.h>        /* RTA_xxx constants */
+ #include    <sys/param.h>
+-#include    <sys/sysctl.h>        /* sysctl() */
++#include    <linux/sysctl.h>        /* sysctl() */
+ 
+ #include    <lsr/ls_strtool.h>
+ 

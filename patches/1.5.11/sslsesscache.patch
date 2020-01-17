@@ -1,0 +1,10 @@
+--- a/src/sslpp/sslsesscache.h.orig
++++ b/src/sslpp/sslsesscache.h
+@@ -24,6 +24,7 @@
+ #include <util/tsingleton.h>
+ #include <stdint.h>
+ #include <unistd.h>
++#include <time.h>
+ 
+ 
+ #define LS_SSLSESSCACHE_DEFAULTSIZE 40*1024
